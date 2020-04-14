@@ -21,7 +21,7 @@
     {
         $impact = array();
         $severeImpact = array();
-
+	$data = json_encode($data);
         $receivedData = json_decode($data, true);
 
         $averageInconme = $receivedData['region']['avgDailyIncomeInUSD']; // Average daily income
