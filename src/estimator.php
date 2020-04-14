@@ -74,7 +74,7 @@
             "severeImpact" => $severeImpact, // your severe case estimation
         );
 
-        $exportData = json_encode($exportData);
+        //$exportData = json_encode($exportData);
 
         return $exportData;
     }
