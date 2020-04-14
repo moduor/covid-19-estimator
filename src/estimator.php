@@ -38,7 +38,7 @@
         $impact = array();
         $severeImpact = array();
 
-        $receivedData = json_decode($data, true);
+        $receivedData = $data;
 
         $averageInconme = $receivedData['region']['avgDailyIncomeInUSD']; // Average daily income
         $averageIncomePop = $receivedData['region']['avgDailyIncomePopulation']; // Average daily income population
