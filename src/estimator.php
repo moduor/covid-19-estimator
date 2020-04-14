@@ -52,7 +52,7 @@
         // Challenge 2
         $impact['severeCasesByRequestedTime'] = (int)$impSevCasesByReqTime;
         $severeImpact['severeCasesByRequestedTime'] = (int)$servreImpSevCasesByReqTime;
-        $availableBeds =  (int)($receivedData['totalHospitalBeds'] * 0.35);
+        $availableBeds =  ($receivedData['totalHospitalBeds'] * 0.35);
 
         $impact['hospitalBedsByRequestedTime'] = (int)($availableBeds - $impSevCasesByReqTime);
         $severeImpact['hospitalBedsByRequestedTime'] = (int)($availableBeds - $servreImpSevCasesByReqTime);
