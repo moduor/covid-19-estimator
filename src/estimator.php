@@ -38,20 +38,20 @@
         $impCurrentlyInfected = $reportedCases * 10; // Impact currently inected cases
         $severeImpCurrentlyInfected = $reportedCases * 50; // Severe Impact currently inected cases
 
-        $impInfByReqtime = (int)($impCurrentlyInfected * pow(2,$factor)); // Impact - infectionsByRequestedTime = $severeImpCurrentlyInfected *(2^9)
-        $severeImpInfByReqtime = (int)($severeImpCurrentlyInfected * pow(2,$factor)); // Severe Impact - infectionsByRequestedTime = $severeImpCurrentlyInfected * 512
-        $impSevCasesByReqTime = (int)($impInfByReqtime * 0.15); //Impact  - severeCasesByRequestedTime
-        $servreImpSevCasesByReqTime = (int)($severeImpInfByReqtime * 0.15); //Sever Impact - severeCasesByRequestedTime
+        $impInfByReqtime = ($impCurrentlyInfected * pow(2,$factor)); // Impact - infectionsByRequestedTime = $severeImpCurrentlyInfected *(2^9)
+        $severeImpInfByReqtime = ($severeImpCurrentlyInfected * pow(2,$factor)); // Severe Impact - infectionsByRequestedTime = $severeImpCurrentlyInfected * 512
+        $impSevCasesByReqTime = ($impInfByReqtime * 0.15); //Impact  - severeCasesByRequestedTime
+        $servreImpSevCasesByReqTime = ($severeImpInfByReqtime * 0.15); //Sever Impact - severeCasesByRequestedTime
 
 
-        $impact['currentlyInfected'] = $impCurrentlyInfected;
-        $severeImpact['currentlyInfected'] = $severeImpCurrentlyInfected;
-        $impact['infectionsByRequestedTime'] = $impInfByReqtime;
-        $severeImpact['infectionsByRequestedTime'] = $severeImpInfByReqtime;
+        $impact['currentlyInfected'] = (int)$impCurrentlyInfected;
+        $severeImpact['currentlyInfected'] = (int)$severeImpCurrentlyInfected;
+        $impact['infectionsByRequestedTime'] = (int)$impInfByReqtime;
+        $severeImpact['infectionsByRequestedTime'] = (int)$severeImpInfByReqtime;
 
         // Challenge 2
-        $impact['severeCasesByRequestedTime'] = $impSevCasesByReqTime;
-        $severeImpact['severeCasesByRequestedTime'] = $servreImpSevCasesByReqTime;
+        $impact['severeCasesByRequestedTime'] = (int)$impSevCasesByReqTime;
+        $severeImpact['severeCasesByRequestedTime'] = (int)$servreImpSevCasesByReqTime;
         $availableBeds =  (int)($receivedData['totalHospitalBeds'] * 0.35);
 
         $impact['hospitalBedsByRequestedTime'] = (int)($availableBeds - $impSevCasesByReqTime);
