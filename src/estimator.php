@@ -1,20 +1,4 @@
 <?php
-
-    /*
-        {
-            region: {
-                name: "Africa",
-                avgAge: 19.7,
-                avgDailyIncomeInUSD: 5,
-                avgDailyIncomePopulation: 0.71
-            },
-            periodType: "days",
-            timeToElapse: 58,
-            reportedCases: 674,
-            population: 66622705,
-            totalHospitalBeds: 1380614
-        }
-    */
     function get_num_days($periodType, $timeToElapse){
         $days = 0;
         switch($periodType){
@@ -38,7 +22,7 @@
         $impact = array();
         $severeImpact = array();
 
-        $receivedData = $data;
+        $receivedData = json_decode($data, true);
 
         $averageInconme = $receivedData['region']['avgDailyIncomeInUSD']; // Average daily income
         $averageIncomePop = $receivedData['region']['avgDailyIncomePopulation']; // Average daily income population
